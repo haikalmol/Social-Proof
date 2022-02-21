@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;700&display=swap");
+:root {
+  --Very-Dark-Magenta: hsl(300, 43%, 22%);
+  --Soft-Pink: hsl(333, 80%, 67%);
+
+  --Dark-Grayish-Magenta: hsl(303, 10%, 53%);
+  --Light-Grayish-Magenta: hsl(300, 24%, 96%);
+  --White: hsl(0, 0%, 100%);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Spartan", sans-serif;
+  font-size: 15px;
+  background-image: url("images/bg-pattern-top-desktop.svg"), url("images/bg-pattern-bottom-desktop.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: top -200px left -300px, bottom -100px right -100px;
+  background-attachment: fixed, fixed;
+  background-size: contain, contain;
+}
+.sr-only {
+  position: absolute;
+  top: auto;
+  height: 1px;
+  width: 1px;
+  left: -10000px;
+  overflow: hidden;
+}
+/* 
+ */
+.container {
+  width: 70rem;
+  margin: 8em auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1.1fr;
+  grid-gap: 4em;
+  grid-template-areas:
+    "proof-info-item rated-info-item"
+    "users-info-item users-info-item";
+}
+
+.proof-info-item {
+  padding-right: 4rem;
+}
+
+.title {
+  font-size: 3.2em;
+  font-weight: 700;
+  color: var(--Very-Dark-Magenta);
+  line-height: 3rem;
+  letter-spacing: -0.1rem;
+}
+.proof-info-item p {
+  color: var(--Dark-Grayish-Magenta);
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.5rem;
+  letter-spacing: -0.03em;
+}
+
+/* rate item */
+.rated-info-item {
+  padding-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.rated-1,
+.rated-2,
+.rated-3 {
+  width: 88%;
+  padding: 20px;
+  background-color: hsl(303, 10%, 96%);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  gap: 35px;
+  color: var(--Very-Dark-Magenta);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+.stars {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  padding-left: 1em;
+}
+
+/* users item */
+.users-info-item {
+  grid-area: users-info-item;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 25px;
+}
+.user-item-1,
+.user-item-2,
+.user-item-3 {
+  background-color: var(--Very-Dark-Magenta);
+  border-radius: 8px;
+  padding: 2.7em 2.2em;
+  width: -webkit-fill-available;
+}
+
+.header-user {
+  display: flex;
+  gap: 1.5em;
+  margin-bottom: 26px;
+}
+.profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.profile-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.profile-name h2 {
+  color: var(--Light-Grayish-Magenta);
+  font-size: 0.85em;
+}
+.profile-name h3 {
+  color: hsl(333, 50%, 67%);
+  font-size: 0.85em;
+  font-weight: 100;
+}
+
+.user-item-1 q,
+.user-item-2 q,
+.user-item-3 q {
+  color: hsl(300, 50%, 96%);
+  font-size: 0.85em;
+  line-height: 1.3rem;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    background-image: url("images/bg-pattern-top-mobile.svg"), url("images/bg-pattern-bottom-mobile.svg");
+    background-repeat: no-repeat, no-repeat;
+    background-position: top left, bottom right;
+    background-attachment: fixed, fixed;
+    background-size: contain, contain;
+  }
+  .container {
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2.5em;
+    grid-template-areas:
+      "proof-info-item"
+      "rated-info-item"
+      "users-info-item";
+  }
+  .title {
+    margin-bottom: 0.7em;
+    font-size: 2.5em;
+    line-height: 3rem;
+  }
+  .users-info-item {
+    flex-direction: column;
+  }
+
+  .rated-1,
+  .rated-2,
+  .rated-3 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .proof-info-item {
+    padding: 0;
+    text-align: center;
+  }
+  .rated-info-item {
+    padding-top: 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .user-item-1 {
+    align-self: flex-start;
+  }
+  .user-item-2 {
+    align-self: center;
+  }
+  .user-item-3 {
+    align-self: flex-end;
+  }
+
+  .rated-1 {
+    align-self: flex-start;
+  }
+  .rated-2 {
+    align-self: center;
+  }
+  .rated-3 {
+    align-self: flex-end;
+  }
+}
